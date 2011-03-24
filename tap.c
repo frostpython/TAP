@@ -65,6 +65,7 @@ int main()
 
    int menuNum;
 
+   // This loop is to make sure the user doesn't enter anything strange
    while ( menuNum < 0 || menuNum > 5 ) {
       fflush(stdin);
       printf("Welcome to TAP!\n");
@@ -76,26 +77,26 @@ int main()
       printf("0. Quit\n");
 
       scanf("%d",&menuNum);getchar();
-   }
 
-   // This directs all menu options to their appropriate functions
-   switch ( menuNum) {
-   case 1:
-      DiceBag();
-      break;
-   case 2:
-   case 3:
-   case 4:
-   case 5:
-      printf("Oops! This isn't implemented yet. Poke us in IRC to let us know you want it\n");
-      break;
-   case 0:
-      printf("Thanks for playing!\n");
-      exit;
-      break;
-   default:
-      printf("Seems like you have mistyped. Please try again. 0 will let you exit\n");
-      break;
+      // This directs all menu options to their appropriate functions
+      switch ( menuNum) {
+      case 1:
+         DiceBag();
+         break;
+      case 2:
+      case 3:
+      case 4:
+      case 5:
+         printf("Oops! This isn't implemented yet. Poke us in IRC to let us know you want it\n");
+         break;
+      case 0:
+         printf("Thanks for playing!\n");
+         exit;
+         break;
+      default:
+         printf("Seems like you have mistyped. Please try again. 0 will let you exit\n");
+         break;
+      }
    }
 
    return 0;
