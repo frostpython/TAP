@@ -8,12 +8,9 @@ TAP is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
 You should have received a copy of the GNU General Public License along with TAP.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-// Included because... duh.
-#include <stdio.h>
-// Included for rand()
-#include <stdlib.h>
-// Included for the random seed
-#include <time.h>
+#include <stdio.h> // Included because... duh.
+#include <stdlib.h> // Included for rand()
+#include <time.h> // Included for the random seed
 
 int SumDice(int sides, int number, int verbose)
 // Accepts number of sides on each die, number of dice to roll, and whether you want to hear each roll
@@ -41,15 +38,23 @@ int DiceBag()
 {
    // Seeds the random number
    srand(time(NULL));
+   // Sets them to 0 to error out if return is entered
    int numDice,sides;
+   numDice = sides = 0;
 
    // The clears the screen. It seems a little hacky to work on Windoze too, but it works. Fix maybe?
    if (system("cls")) system("clear");
 
-   printf("How many dice would you like to roll?\n");
-   scanf("%d",&numDice);getchar();
-   printf("How many sides on them?\n");
-   scanf("%d",&sides);getchar();
+   while ( numDice < 1 ) {
+      printf("How many dice would you like to roll?\n");
+      scanf("%d",&numDice);getchar();
+      fflush(stdin);
+   }
+   while ( sides < 1 ) {
+      printf("How many sides on them?\n");
+      scanf("%d",&sides);getchar();
+      fflush(stdin);
+   }
    printf("\n\nThe result is %d\n",SumDice(sides,numDice,1));
 
    return 0;
@@ -72,6 +77,8 @@ int main()
 
       scanf("%d",&menuNum);getchar();
    }
+
+   // This directs all menu options to their appropriate functions
    switch ( menuNum) {
    case 1:
       DiceBag();
