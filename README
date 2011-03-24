@@ -2,14 +2,11 @@ TAP - Tap Assisted Pathfinder
 ====================================
 OBJECTIVE: 
 	TAP is a Dungeon Master utility for Pathfinder and
-	other OGL games written in Python.  TAP is covered
+	other OGL games written in C++.  TAP is covered
 	by the AGPL.
 
 CODING STANDARD: 
-	TAP uses the style described in the Google Python Style Guide
-	at http://code.google.com/p/soc/wiki/PythonStyleGuide
+	TAP uses the style described in the Google C++ Style Guide
+	at http://code.google.com/p/google-styleguide/
 	We encourage committers to read through this before submitting
-	code.  A notable exception to this is that we will use Python
-	2.6.6.  
-
-	
+	code.  
