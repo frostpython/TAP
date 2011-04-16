@@ -12,6 +12,56 @@ You should have received a copy of the GNU General Public License along with TAP
 #include <stdlib.h> // Included for rand()
 #include <time.h> // Included for the random seed
 
+
+int CreateChar()
+{
+   int classNum = 99;
+   while ( classNum < 0 || classNum > 11 ) {
+      fflush(stdin);
+      printf("Which class would you like to create?\n");
+      printf("1. Barbarian\n");
+      printf("2. Bard\n");
+      printf("3. Cleric\n");
+      printf("4. Druid\n");
+      printf("5. Fighter\n");
+      printf("6. Monk\n");
+      printf("7. Paladin\n");
+      printf("8. Ranger\n");
+      printf("9. Rogue\n");
+      printf("10. Sorcerer\n");
+      printf("11. Wizard\n");
+      printf("0. Quit\n");
+
+      scanf("%d",&classNum);getchar();
+
+      // This directs all menu options to their appropriate functions
+      switch ( classNum ) {
+         case 1:
+         case 2:
+         case 3:
+         case 4:
+         case 5:
+         case 6:
+         case 7:
+         case 8:
+         case 9:
+         case 10:
+         case 11:
+            printf("This class is not yet implemented. Sorry!\n");
+            break;
+         case 0:
+            printf("Dropping you back to the main menu.\n");
+            break;
+         default:
+            printf("Seems like you have mistyped. Please try again. 0 will let you exit.\n");
+            break;
+      }
+
+
+   }
+   return 0;
+}
+
 int SumDice(int sides, int number, int verbose)
 // Accepts number of sides on each die, number of dice to roll, and whether you want to hear each roll
 {
@@ -60,6 +110,8 @@ int DiceBag()
    return 0;
 }
 
+
+
 int main()
 {
 
@@ -79,11 +131,12 @@ int main()
       scanf("%d",&menuNum);getchar();
 
       // This directs all menu options to their appropriate functions
-      switch ( menuNum) {
+      switch ( menuNum ) {
       case 1:
          DiceBag();
          break;
       case 2:
+         CreateChar();
       case 3:
       case 4:
       case 5:
